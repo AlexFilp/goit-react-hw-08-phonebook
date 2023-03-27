@@ -1,11 +1,5 @@
 import styled from 'styled-components';
 
-export const FormTitle = styled.h1`
-  font-size: 40px;
-  text-align: center;
-  margin-bottom: 10px;
-`;
-
 export const ContactForm = styled.form`
   display: flex;
   flex-direction: column;

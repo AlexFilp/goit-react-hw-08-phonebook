@@ -1,45 +1,36 @@
 import { GlobalStyle } from '../GlobalStyle';
-import {
-  ContactsTitle,
-  Container,
-  FormTitle,
-  LoaderContainer,
-} from './App.styled';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Form } from '../Form/Form';
-import { Contacts } from '../Contacts/Contacts';
-import { Filter } from '../Filter/Filter';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, lazy } from 'react';
+import { useDispatch } from 'react-redux';
 import { fetchContacts } from 'redux/operations';
-import { selectIsLoading, selectError } from 'redux/selectors';
-import { RotatingLines } from 'react-loader-spinner';
+import { Route, Routes } from 'react-router-dom';
+import { Layout } from '../Layout/Layout';
+
+const HomePage = lazy(() => import('../../Pages/Home/Home'));
+const RegisterPage = lazy(() => import('../../Pages/Register/Register'));
+const LoginPage = lazy(() => import('../../Pages/Login/Login'));
+const ContactsPage = lazy(() => import('../../Pages/Contacts/Contacts'));
 
 export const App = () => {
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
 
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
   return (
-    <Container>
-      <FormTitle>Phonebook</FormTitle>
-      <Form />
-      <ContactsTitle>Contacts</ContactsTitle>
-      <Filter />
-      {isLoading && !error && (
-        <LoaderContainer>
-          <RotatingLines height="45" width="45" strokeColor="grey" />
-          <p>Loading</p>
-        </LoaderContainer>
-      )}
-      <Contacts />
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />}></Route>
+          <Route path="/register" element={<RegisterPage />}></Route>
+          <Route path="/login" element={<LoginPage />}></Route>
+          <Route path="/contacts" element={<ContactsPage />}></Route>
+        </Route>
+      </Routes>
       <GlobalStyle />
-      <ToastContainer autoClose={2000} limit={3} position="top-center" />
-    </Container>
+      <ToastContainer autoClose={2000} limit={3} position="top-right" />
+    </>
   );
 };

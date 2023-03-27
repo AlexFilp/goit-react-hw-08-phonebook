@@ -5,7 +5,7 @@ export const Item = styled.li`
   gap: 30px;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
+  width: calc((100% - 20px) / 3);
   padding: 5px;
   border-radius: 10px;
   border: 1px solid black;
@@ -21,6 +21,7 @@ export const Btn = styled.button`
   font-size: 20px;
   transition: color 150ms ease-in, background-color 150ms ease-in;
   background-color: #d3d3d373;
+  border-radius: 4px;
   &:hover,
   &:focus {
     color: white;
