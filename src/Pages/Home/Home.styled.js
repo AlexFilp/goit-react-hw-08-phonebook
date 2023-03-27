@@ -40,6 +40,14 @@ export const Text = styled.p`
 `;
 
 export const HomeRegisterLink = styled(Link)`
+  display: inline-block;
+  margin-left: 3px;
   color: ${pr => pr.theme.color.accentColor};
   text-decoration: underline;
+  transition: transform ${pr => pr.theme.transition};
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
 `;
