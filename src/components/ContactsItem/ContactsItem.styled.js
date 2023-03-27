@@ -6,10 +6,9 @@ export const Item = styled.li`
   align-items: center;
   justify-content: space-between;
   width: calc((100% - 20px) / 3);
-  padding: 5px;
+  padding: 10px;
   border-radius: 10px;
-  border: 1px solid black;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: ${pr => pr.theme.boxShadow};
 `;
 
 export const Text = styled.p`
@@ -19,12 +18,15 @@ export const Text = styled.p`
 export const Btn = styled.button`
   padding: 7px;
   font-size: 20px;
-  transition: color 150ms ease-in, background-color 150ms ease-in;
+  transition: color ${pr => pr.theme.transition},
+    transform ${pr => pr.theme.transition};
   background-color: #d3d3d373;
   border-radius: 4px;
+  border: none;
+  box-shadow: ${pr => pr.theme.boxShadow};
   &:hover,
   &:focus {
-    color: white;
-    background-color: #010101;
+    color: ${pr => pr.theme.color.accentColor};
+    transform: scale(1.1);
   }
 `;

@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
+export const FormTitle = styled.h1`
+  font-size: 40px;
+  color: ${pr => pr.theme.color.accentColor};
+  text-align: center;
+  margin-bottom: 10px;
+`;
+
 export const ContactForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -9,9 +16,7 @@ export const ContactForm = styled.form`
   width: 400px;
   padding: 15px;
   border-radius: 10px;
-  border: 1px solid black;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  box-shadow: ${pr => pr.theme.boxShadow};
 `;
 
 export const Label = styled.label`
@@ -30,8 +35,15 @@ export const Input = styled.input`
   display: block;
   font-size: 20px;
   width: 100%;
+  height: 30px;
+  text-align: center;
   padding-left: 10px;
   padding-right: 10px;
+  padding-bottom: 5px;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  box-shadow: ${pr => pr.theme.boxShadow};
 `;
 
 export const Btn = styled.button`
@@ -39,11 +51,15 @@ export const Btn = styled.button`
   margin: 0 auto;
   padding: 7px;
   font-size: 20px;
-  transition: color 150ms ease-in, background-color 150ms ease-in;
+  transition: color ${pr => pr.theme.transition},
+    transform ${pr => pr.theme.transition};
   background-color: #d3d3d373;
+  border-radius: 4px;
+  border: none;
+  box-shadow: ${pr => pr.theme.boxShadow};
   &:hover,
   &:focus {
-    color: white;
-    background-color: #010101;
+    color: ${pr => pr.theme.color.accentColor};
+    transform: scale(1.1);
   }
 `;

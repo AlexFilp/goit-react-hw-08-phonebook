@@ -1,6 +1,6 @@
 export const theme = {
   color: {
-    accentColor: 'red',
+    accentColor: 'blue',
   },
   transition: '200ms ease-in',
   boxShadow: `rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,

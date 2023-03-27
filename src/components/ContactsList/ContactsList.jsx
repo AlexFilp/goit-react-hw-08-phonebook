@@ -14,8 +14,7 @@ export const ContactsList = () => {
     <ListContainer>
       {isLoading && !error && (
         <LoaderContainer>
-          <RotatingLines height="35" width="35" strokeColor="grey" />
-          <p>Loading</p>
+          <RotatingLines height="35" width="35" strokeColor="blue" />
         </LoaderContainer>
       )}
       <List>
