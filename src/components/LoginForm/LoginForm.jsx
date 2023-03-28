@@ -8,7 +8,7 @@ import {
   HomeRegisterLink,
 } from './LoginForm.styled';
 import { useDispatch } from 'react-redux';
-import { login } from '../../redux/Auth/operations';
+import { logIn } from '../../redux/Auth/operations';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ export const LoginForm = () => {
     const email = form.elements.email.value;
     const password = form.elements.password.value;
     dispatch(
-      login({
+      logIn({
         email,
         password,
       })
