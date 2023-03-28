@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import 'animate.css';
 
 export const Container = styled.div`
   padding-top: 30px;
@@ -8,8 +9,24 @@ export const Container = styled.div`
 export const Title = styled.h1`
   text-align: center;
   font-size: 40px;
-  margin-bottom: 150px;
+  margin-bottom: 60px;
   color: ${pr => pr.theme.color.accentColor};
+`;
+
+export const ArrowContainer = styled.div`
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  margin-bottom: 60px;
+
+  & > svg {
+    width: 100px;
+    height: 100px;
+    fill: ${pr => pr.theme.color.accentColor};
+
+    animation: shakeY;
+    animation-duration: 4s;
+  }
 `;
 
 export const HomeLoginLink = styled(Link)`
