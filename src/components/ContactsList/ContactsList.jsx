@@ -1,8 +1,8 @@
 import { ListContainer, List, LoaderContainer } from './ContactsList.styled';
 import { ContactsItem } from '../ContactsItem/ContactsItem';
 import { useSelector } from 'react-redux';
-import { selectfilteredContacts } from 'redux/selectors';
-import { selectIsLoading, selectError } from 'redux/selectors';
+import { selectfilteredContacts } from 'redux/Contacts/selectors';
+import { selectIsLoading, selectError } from 'redux/Contacts/selectors';
 import { RotatingLines } from 'react-loader-spinner';
 
 export const ContactsList = () => {

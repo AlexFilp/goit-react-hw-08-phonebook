@@ -19,6 +19,7 @@ export const HomeLoginLink = styled(Link)`
   margin: 0 auto;
   margin-bottom: 30px;
   padding: 7px;
+  padding-bottom: 12px;
   font-size: 35px;
   transition: color ${pr => pr.theme.transition},
     transform ${pr => pr.theme.transition};
