@@ -18,8 +18,8 @@ export const ContactsList = () => {
         </LoaderContainer>
       )}
       <List>
-        {filteredContacts.map(({ id, name, phone }) => {
-          return <ContactsItem key={id} id={id} name={name} phone={phone} />;
+        {filteredContacts.map(({ id, name, number }) => {
+          return <ContactsItem key={id} id={id} name={name} phone={number} />;
         })}
       </List>
     </ListContainer>

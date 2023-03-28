@@ -13,11 +13,11 @@ export const Form = () => {
     evt.preventDefault();
     const form = evt.target;
     const name = form.elements.name.value;
-    const phone = form.elements.number.value;
+    const number = form.elements.number.value;
     if (allContacts.find(contact => contact.name === name)) {
       return toast.error(`${name} is already in contacts!`);
     }
-    dispatch(addContact({ name, phone }));
+    dispatch(addContact({ name, number }));
     form.reset();
   };
 
