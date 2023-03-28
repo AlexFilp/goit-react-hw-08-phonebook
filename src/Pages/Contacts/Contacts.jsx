@@ -6,6 +6,7 @@ import { Container } from './Contacts.styled';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchContacts } from 'redux/Contacts/operations';
+import { Helmet } from 'react-helmet';
 
 export default function Contacts() {
   const dispatch = useDispatch();
@@ -16,6 +17,9 @@ export default function Contacts() {
 
   return (
     <GlobalContainer>
+      <Helmet>
+        <title>Your contacts</title>
+      </Helmet>
       <Container>
         <Form />
         <Filter />

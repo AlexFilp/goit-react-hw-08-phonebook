@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const ContactForm = styled.form`
   display: flex;
@@ -6,7 +7,7 @@ export const ContactForm = styled.form`
   align-items: flex-start;
   margin: 0 auto;
   margin-top: 70px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   width: 400px;
   padding: 15px;
   border-radius: 10px;
@@ -55,6 +56,24 @@ export const Btn = styled.button`
   &:hover,
   &:focus {
     color: ${pr => pr.theme.color.accentColor};
+    transform: scale(1.1);
+  }
+`;
+
+export const Text = styled.p`
+  font-size: 20px;
+  text-align: center;
+`;
+
+export const HomeRegisterLink = styled(Link)`
+  display: inline-block;
+  margin-left: 3px;
+  color: ${pr => pr.theme.color.accentColor};
+  text-decoration: underline;
+  transition: transform ${pr => pr.theme.transition};
+
+  &:hover,
+  &:focus {
     transform: scale(1.1);
   }
 `;
