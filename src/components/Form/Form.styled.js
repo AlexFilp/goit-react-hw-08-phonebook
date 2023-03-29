@@ -21,7 +21,7 @@ export const ContactForm = styled.form`
 
 export const Label = styled.label`
   font-size: 25px;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
   width: 100%;
 `;
 
@@ -45,10 +45,22 @@ export const Input = styled.input`
   border: none;
   box-shadow: ${pr => pr.theme.boxShadow};
 `;
+export const ErrorMessageContainer = styled.div`
+  height: auto;
+
+  width: 100%;
+  text-align: center;
+`;
+
+export const ErrorText = styled.p`
+  font-size: 18px;
+  color: red;
+`;
 
 export const Btn = styled.button`
   display: block;
   margin: 0 auto;
+  margin-top: 10px;
   padding: 7px;
   font-size: 20px;
   transition: color ${pr => pr.theme.transition},
@@ -61,5 +73,10 @@ export const Btn = styled.button`
   &:focus {
     color: ${pr => pr.theme.color.accentColor};
     transform: scale(1.1);
+  }
+  &:disabled {
+    transform: scale(0.9);
+    color: grey;
+    box-shadow: ${pr => pr.theme.boxShadowDisabled};
   }
 `;

@@ -8,7 +8,10 @@ import { Layout } from '../Layout/Layout';
 import { RestrictedRoute } from '../../RestrictedRoute';
 import { PrivateRoute } from '../../PrivateRoute';
 import { useSelector } from 'react-redux';
-import { selectIsRefreshing } from '../../redux/Auth/selectors';
+import {
+  selectIsRefreshing,
+  selectIsLoggedIn,
+} from '../../redux/Auth/selectors';
 import { refreshUser } from '../../redux/Auth/operations';
 import { RotatingLines } from 'react-loader-spinner';
 import { Container } from './App.styled';
@@ -21,6 +24,7 @@ const ContactsPage = lazy(() => import('../../Pages/Contacts/Contacts'));
 export const App = () => {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
     console.log('refreshing');
@@ -36,7 +40,10 @@ export const App = () => {
       ) : (
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<HomePage />}></Route>
+            <Route
+              index
+              element={!isLoggedIn ? <HomePage /> : <ContactsPage />}
+            ></Route>
             <Route
               path="/register"
               element={
@@ -68,7 +75,7 @@ export const App = () => {
         </Routes>
       )}
       <GlobalStyle />
-      <ToastContainer autoClose={3000} limit={3} position="top-center" />
+      <ToastContainer autoClose={2500} limit={3} position="top-center" />
     </>
   );
 };

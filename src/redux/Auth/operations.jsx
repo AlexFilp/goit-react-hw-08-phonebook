@@ -12,7 +12,7 @@ const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = '';
 };
 
-export const register = createAsyncThunk(
+export const doRegister = createAsyncThunk(
   'auth/register',
   async (credentials, thunkApi) => {
     try {
@@ -21,7 +21,7 @@ export const register = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (err) {
-      toast.error(`The account with this email is already existing!`);
+      toast.error(`Email is invalid or already existing!`);
       return thunkApi.rejectWithValue(err.message);
     }
   }
