@@ -1,4 +1,4 @@
-import { Item, Text, Btn } from './ContactsItem.styled';
+import { Item, Text, Btn, TelLink } from './ContactsItem.styled';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/Contacts/operations';
 
@@ -11,7 +11,7 @@ export const ContactsItem = ({ id, name, phone }) => {
   return (
     <Item>
       <Text>
-        {name}: {phone}
+        {name}: <TelLink href={'tel:' + phone}>{phone}</TelLink>
       </Text>
       <Btn onClick={handleDelete}>Delete</Btn>
     </Item>

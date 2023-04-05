@@ -15,7 +15,8 @@ export const UserMenu = () => {
   return (
     <Container>
       <Text>
-        Logged in with <MailLink href="#">{user.email}</MailLink>
+        Logged in with{' '}
+        <MailLink href={'mailto:' + user.email}>{user.email}</MailLink>
       </Text>
       <Btn type="button" onClick={handleLogOut}>
         Logout

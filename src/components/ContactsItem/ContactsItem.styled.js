@@ -15,6 +15,10 @@ export const Text = styled.p`
   font-size: 20px;
 `;
 
+export const TelLink = styled.a`
+  color: ${pr => pr.theme.color.accentColor};
+`;
+
 export const Btn = styled.button`
   padding: 7px;
   font-size: 20px;
